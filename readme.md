@@ -18,21 +18,26 @@
 The `src` folder contains the following files:
 
 **models.ts**
+
 Has data type definitions for representing the public and private keys.
 
 **utils.ts**
+
 Has helper methods/functions to be used by the RSA implementations.
 
 **Functions:**
 
  **1. isPrime**
+ 
 Returns true if a number is prime.
 
  **2. findPrimeNumbersInRange**
+ 
 Find prime numbers at the chosen positions in the given range.
 Example: `findPrimeNumbersInRange(1000, 10000, new Set([10, 19]))` gets the 10th and 19th prime numbers between 1000 and 10000. The result is an array of the requested numbers ie `[1061, 1129]` in this case.
 
  **3. stringToAlphabetNumbers**
+ 
 Converts strings to numbers corresponding to their position from 0 to 25 letters of the alphabet.
 Example: `stringToAlphabetNumbers("rsa")` returns `17180`
 
@@ -41,6 +46,7 @@ Example: `stringToAlphabetNumbers("rsa")` returns `17180`
 Calculates the greatest common divisor of given input integers.
 
  **5. euclidGCD**
+ 
 Implements Euclid's algorithm that computes, besides the greatest common divisor of integers a and b, the coefficients of Bézout's identity, that is, integers `x` and `y` such that;
 	
 	ax + by = gcd(a, b)
@@ -56,14 +62,17 @@ In this case, `x` will always be the coefficient for the smaller integer and `y`
 Example: `euclidGCD(7, 9)` returns `{value: 1, x: 4, y: -3}`
 
  **6. getPrimeFactors**
+ 
 Breaks down a number into the set of prime numbers which multiply together to result in the original number.
 Returns an array of the prime factors. 
 Example; 9 = 3*3, `getPrimeFactors(9) = [3,3]`
 
  **7. rsa.ts**
+ 
 Has a class that implements the RSA encryption algorithm.
 
 **Class Variables**
+
  - **p**: A distinct random prime number.
  - **q**: Another distinct random prime number.
  - **n**:  The product of `p` and `q`.
@@ -80,16 +89,21 @@ Has a class that implements the RSA encryption algorithm.
    `getPrivateKey`.
 
 **Methods:**
+
  **1. constructor**
+ 
 Initializes the object instance of the class, p and q should be provided as input parameters.
 
  **2. getPhi**
+ 
 Takes in p and q and computes 𝜑(n) = (p − 1 )*( q − 1 );
 
  **3. getN**
+ 
 Returns `n` as `p * q`.
 
  **4. computeEncryptionExponent**
+ 
 Calculates the encryption exponent, such that; 
 
 	1 < e < 𝜑(n) where 𝜑(n) is stored in the variable phi.
@@ -99,6 +113,7 @@ A random prime number `randE` is chosen as a candidate for exponent first. If th
 Returns the encryption exponent stored as the class variable `e`.
 
  **5. computeDecryptionExponent**
+ 
 Computes the decryption exponent `d`, the multiplicative inverse of `e modulo 𝜑(n)`. 
 
 	d = (1 + k * 𝜑(n) ) / e  OR 
@@ -108,6 +123,7 @@ The x obtained is used as a candidate for `d`, the coefficient of e in the linea
 `d` should always be positive. If a negative value for candidate `d` is obtained, the candidate `d` is added to `𝜑(n)` until it is positive.
 
  **6. encrypt**
+ 
 Takes in an integer as the plain message and a public key and enciphers the message using the function: 
 
 	C = M^e mod n
@@ -118,6 +134,7 @@ Takes in an integer as the plain message and a public key and enciphers the mess
 	Returns C as the encrypted message.
 
  **7. decrypt**
+ 
 Takes in an integer as the ciphertext and a private key and enciphers the message using the function: 
 
 	M = C^d mod n
@@ -129,17 +146,21 @@ Takes in an integer as the ciphertext and a private key and enciphers the messag
 Returns `M` as the encrypted message.
 
  **8. getPublicKey**
+ 
 Returns an object representation of the public key.
 
  **9. getPrivateKey**
+ 
 Returns an object representation of the private key.
 
 **attack.ts**
+
 Has the runAttack function that performs an exhaustive search to get the private key.
 
 **Methods:**
 
  **1. runAttack**
+ 
 Takes in a public key and the encrypted message as input parameters.
 The private key can be calculated if the `p` and `q` are obtained from the public key’s `n` value.
 Since `n = p * q`, the length of the array obtained when `getPrimeFactors(n)` is run should be equal to 2, if not, then the attack has failed, or `n` is not valid.
@@ -148,4 +169,5 @@ The guessed `p` and `q` are then used to obtain the private key and used to deci
 The guessed message obtained is then returned for comparison later.
 
 **index.ts**
+
 This is the entry file used for testing and logging the problem.
