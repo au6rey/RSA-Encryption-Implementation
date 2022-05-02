@@ -4,15 +4,15 @@
 
  1. Install the latest version of Node from [here.](https://nodejs.dev/download/).
  2. Clone this repo.
- 3. Run `cd RSA-Encryption`
+ 3. Run `cd RSA-Encryption-Implementation`
  4. Run `npm install`.
  5. Run `npm start`
 
 **SCREENSHOT**
-**![](https://lh4.googleusercontent.com/li3J6c4fvUiJALPk4brCXqr6d4o_nJ7wUcw7b-0JWQV82Z-qRILl4fAeGXgicQrajE6HaGdEDeIYamvoWBbLKiGSBNFWcbiX22IMT13zrXjVIJgPuZW452mFN5w6Px6_dKbS2nz4qzd0Fip7zg)**
+**![](https://github.com/au6rey/RSA-Encryption-Implementation/blob/main/screenshot/result.png?raw=true)**
 
 **DESIGN**
-**Project File/Folder Structure**
+
 The `src` folder contains the following files:
 
 **models.ts**
