@@ -9,8 +9,8 @@
  5. Run `npm start`
 
 **SCREENSHOT**
-**![](https://github.com/au6rey/RSA-Encryption-Implementation/blob/main/screenshot/result.png?raw=true)**
 
+**![](https://github.com/au6rey/RSA-Encryption-Implementation/blob/main/screenshot/result.png?raw=true)**
 
 
 **DESIGN**
@@ -96,7 +96,7 @@ Initializes the object instance of the class, p and q should be provided as inpu
 
  **2. getPhi**
  
-Takes in p and q and computes 𝜑(n) = (p − 1 )*( q − 1 );
+Takes in `p` and `q` and computes `𝜑(n) = (p − 1 )*( q − 1 )`;
 
  **3. getN**
  
